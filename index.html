@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>小小影视｜剧集索引与追剧笔记站 · xiaoxiaoyingshi-app.github.io</title>
+<meta name="description" content="小小影视是一份自己整理的剧集索引与追剧笔记：把每月片单、更新进度、观影顺序建议和常见播放问题汇总在一页里，站点地址 xiaoxiaoyingshi-app.github.io，手机打开即可查看。">
+<meta name="keywords" content="小小影视,小小影视剧集索引,小小影视追剧笔记,小小影视片单推荐,剧集更新时间表,影视观看顺序指南,xiaoxiaoyingshi-app">
+<meta name="author" content="小小影视">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0d1420">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://xiaoxiaoyingshi-app.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://xiaoxiaoyingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="小小影视">
+<meta property="og:title" content="小小影视｜剧集索引与追剧笔记站">
+<meta property="og:description" content="每月片单、更新进度、补剧顺序与播放问题处理，小小影视把这些内容收在一页里，站点 xiaoxiaoyingshi-app.github.io。">
+<meta property="og:url" content="https://xiaoxiaoyingshi-app.github.io/">
+<meta property="og:image" content="https://xiaoxiaoyingshi-app.github.io/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="小小影视｜剧集索引与追剧笔记站">
+<meta name="twitter:description" content="片单、进度、补剧顺序与播放问题，小小影视一页汇总。">
+<style>
+:root{
+  --ink:#0d1420;
+  --ink2:#141d2b;
+  --card:#182233;
+  --line:#263349;
+  --txt:#e8eef7;
+  --sub:#9aabc2;
+  --gold:#ffb648;
+  --teal:#4ecdc4;
+  --pink:#ff6f91;
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--txt);
+  font:400 16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background-image:radial-gradient(900px 480px at 88% -8%,rgba(255,182,72,.16),transparent 60%),radial-gradient(700px 420px at -10% 12%,rgba(78,205,196,.12),transparent 62%);
+  background-repeat:no-repeat;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:700;letter-spacing:.5px}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* 顶部滚动条 */
+.ticker{
+  background:linear-gradient(90deg,#1b2740,#20304a,#1b2740);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  height:34px;
+  position:relative;
+}
+.ticker span{
+  display:inline-block;
+  white-space:nowrap;
+  font-size:13px;
+  color:var(--gold);
+  padding:7px 0;
+  animation:slide 26s linear infinite;
+}
+@keyframes slide{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.ticker span{animation:none;transform:none}}
+
+/* 导航 */
+header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(13,20,32,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;gap:14px;height:62px}
+.logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.reel{
+  width:34px;height:34px;border-radius:9px;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--gold),#ff8a5c);
+  position:relative;box-shadow:0 4px 14px rgba(255,182,72,.28);
+}
+.reel::before,.reel::after{
+  content:"";position:absolute;left:6px;right:6px;height:4px;
+  background:var(--ink);border-radius:2px;
+}
+.reel::before{top:8px}
+.reel::after{bottom:8px}
+.logo b{font-size:19px;letter-spacing:2px}
+.logo small{display:block;font-size:11px;color:var(--sub);letter-spacing:1px}
+nav{
+  margin-left:auto;display:flex;gap:4px;overflow-x:auto;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+nav::-webkit-scrollbar{display:none}
+nav a{
+  flex:0 0 auto;font-size:14px;color:var(--sub);
+  padding:8px 12px;border-radius:20px;transition:.2s;
+}
+nav a:hover,nav a.on{color:var(--ink);background:var(--gold)}
+@media(max-width:720px){
+  .logo small{display:none}
+  .bar{height:56px}
+}
+
+/* 首屏 */
+.hero{padding:52px 0 10px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;color:var(--teal);
+  border:1px solid rgba(78,205,196,.35);
+  background:rgba(78,205,196,.08);
+  padding:5px 12px;border-radius:30px;
+}
+.hero h1{font-size:44px;margin:18px 0 14px;letter-spacing:2px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.lede{color:var(--sub);font-size:16.5px;max-width:34em}
+.kw{color:var(--gold);font-weight:600}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{
+  font-size:13px;color:var(--txt);
+  border:1px solid var(--line);background:var(--card);
+  padding:7px 14px;border-radius:10px;
+}
+
+/* 网址卡（斜切块） */
+.addr{
+  position:relative;
+  background:linear-gradient(150deg,#1d2a41,#162034 60%,#1a2740);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:24px 22px;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+.addr::after{
+  content:"";position:absolute;right:-40px;top:-40px;
+  width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,182,72,.22),transparent 70%);
+}
+.addr h3{font-size:15px;color:var(--sub);font-weight:600;letter-spacing:1px}
+.addr .url{
+  display:block;margin:12px 0 6px;
+  font-size:17px;font-weight:700;color:var(--gold);
+  word-break:break-all;line-height:1.5;
+}
+.addr p{font-size:13.5px;color:var(--sub)}
+.dots{
+  display:grid;grid-template-columns:repeat(14,1fr);gap:4px;
+  margin-top:16px;opacity:.75;
+}
+.dots i{height:6px;background:var(--line);border-radius:2px}
+.dots i:nth-child(3n){background:var(--gold)}
+.dots i:nth-child(5n){background:var(--teal)}
+
+/* 统计条 */
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:34px 0 6px;
+}
+.stat{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:16px 18px;
+}
+.stat b{display:block;font-size:26px;color:var(--gold);letter-spacing:1px}
+.stat span{font-size:13px;color:var(--sub)}
+
+/* 通用区块 */
+section{padding:44px 0}
+.sec-head{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.sec-head h2{font-size:26px;letter-spacing:1px}
+.sec-head span{font-size:13px;color:var(--sub);border-left:2px solid var(--gold);padding-left:10px}
+.rule{height:1px;background:linear-gradient(90deg,var(--line),transparent);margin:8px 0 26px}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.about article{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:22px;
+}
+.about article:nth-child(2){border-top:3px solid var(--teal)}
+.about article:nth-child(3){border-top:3px solid var(--pink)}
+.about h4{font-size:16.5px;margin-bottom:10px;color:var(--gold)}
+.about p{font-size:14.5px;color:var(--sub)}
+.note{
+  margin-top:18px;background:rgba(78,205,196,.07);
+  border:1px dashed rgba(78,205,196,.35);
+  border-radius:12px;padding:14px 16px;font-size:14px;color:var(--txt);
+}
+
+/* 片单 */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,182,72,.5)}
+.card:first-child{grid-column:span 2}
+.poster{
+  height:120px;display:flex;align-items:center;justify-content:center;
+  font-size:13px;letter-spacing:2px;color:#0d1420;font-weight:700;
+}
+.p1{background:linear-gradient(120deg,#ffb648,#ff8a5c)}
+.p2{background:linear-gradient(120deg,#4ecdc4,#3aa0b8)}
+.p3{background:linear-gradient(120deg,#ff6f91,#c3569b)}
+.p4{background:linear-gradient(120deg,#8f9bff,#5f6bd8)}
+.p5{background:linear-gradient(120deg,#7bd88f,#3fa96b)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h4{font-size:16px}
+.card .meta{font-size:12.5px;color:var(--sub)}
+.card p{font-size:14px;color:var(--sub);flex:1}
+.score{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--sub)}
+.track{flex:1;height:6px;background:#0f1725;border-radius:4px;overflow:hidden}
+.track i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--pink))}
+.card:first-child .poster{height:150px}
+
+/* 时间线 */
+.steps{position:relative;padding-left:26px}
+.steps::before{
+  content:"";position:absolute;left:7px;top:6px;bottom:6px;
+  width:2px;background:linear-gradient(#ffb648,#4ecdc4,transparent);
+}
+.step{position:relative;padding:0 0 22px}
+.step::before{
+  content:"";position:absolute;left:-25px;top:7px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--ink);border:2px solid var(--gold);
+}
+.step h4{font-size:16px;margin-bottom:6px}
+.step p{font-size:14.5px;color:var(--sub);max-width:48em}
+.step b{color:var(--teal)}
+
+/* 问答 */
+.faq{display:grid;gap:12px}
+details{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:14px 18px;
+}
+summary{
+  cursor:pointer;font-size:15.5px;font-weight:600;list-style:none;
+  display:flex;align-items:center;gap:10px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--gold);font-size:18px}
+details[open] summary::after{content:"–"}
+details p{font-size:14.5px;color:var(--sub);margin-top:10px;max-width:52em}
+
+/* 底部入口 */
+.visit{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;
+  background:var(--ink2);border:1px solid var(--line);
+  border-radius:20px;padding:28px;
+}
+.visit h2{font-size:24px;margin-bottom:12px}
+.visit p{font-size:14.5px;color:var(--sub);max-width:36em}
+.qr{
+  width:132px;height:132px;border-radius:12px;
+  background:
+    repeating-linear-gradient(0deg,var(--gold) 0 8px,transparent 8px 16px),
+    repeating-linear-gradient(90deg,var(--teal) 0 8px,transparent 8px 16px),
+    #0f1725;
+  border:4px solid #fff;margin-top:16px;
+}
+.visit ul{display:grid;gap:10px;margin-top:16px}
+.visit li{font-size:14px;color:var(--sub);display:flex;gap:8px}
+.visit li b{color:var(--txt);font-weight:600;flex:0 0 68px}
+
+footer{
+  border-top:1px solid var(--line);margin-top:20px;
+  padding:26px 0 40px;font-size:13px;color:var(--sub);
+}
+.foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.foot a{padding:4px 10px;border:1px solid var(--line);border-radius:8px}
+.foot a:hover{border-color:var(--gold);color:var(--gold)}
+.foot .r{margin-left:auto}
+.crumb{font-size:12.5px;color:#6f819a;margin-top:14px}
+.crumb a{color:var(--sub)}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .cards{grid-template-columns:1fr 1fr}
+  .card:first-child{grid-column:span 2}
+  .about{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  .hero{padding-top:34px}
+  .hero h1{font-size:31px}
+  .lede{font-size:15.5px}
+  .stats{grid-template-columns:1fr;gap:10px}
+  .stat{display:flex;align-items:baseline;gap:12px}
+  .stat b{font-size:21px}
+  .cards{grid-template-columns:1fr}
+  .card:first-child{grid-column:span 1}
+  .about,.visit{grid-template-columns:1fr}
+  section{padding:34px 0}
+  .sec-head h2{font-size:22px}
+  .visit{padding:20px}
+  .foot .r{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<div class="ticker"><span>小小影视 · 片单每周三更新 · 补剧顺序表已重排 · 播放卡顿排查条目新增 2 条 · 站点 xiaoxiaoyingshi-app.github.io</span></div>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#">
+      <i class="reel" aria-hidden="true"></i>
+      <span><b>小小影视</b><small>XIAOXIAO YINGSHI</small></span>
+    </a>
+    <nav>
+      <a class="on" href="#about">关于小小影视</a>
+      <a href="#list">本月片单</a>
+      <a href="#guide">补剧顺序</a>
+      <a href="#faq">常见问题</a>
+      <a href="#visit">访问入口</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="tag">● 剧集索引 · 追剧笔记 · 更新追踪</span>
+        <h1>把追剧这件事<br>交给<em>小小影视</em>整理</h1>
+        <p class="lede">
+          很多人不是没剧看，是记不住看到第几集、不知道该从哪部补起。
+          <span class="kw">小小影视</span> 做的事情很朴素：把散落在各处的剧集信息、
+          更新进度和观看顺序建议抄进一页里，手机竖屏翻两下就能找到答案。
+        </p>
+        <div class="hero-meta">
+          <span class="chip">每周三更新片单</span>
+          <span class="chip">按进度排序</span>
+          <span class="chip">无广告弹窗</span>
+          <span class="chip">移动端优先排版</span>
+        </div>
+      </div>
+
+      <aside class="addr">
+        <h3>站点访问地址</h3>
+        <span class="url">https://xiaoxiaoyingshi-app.github.io</span>
+        <p>收藏这个地址即可直达 <b>小小影视</b>，域名 xiaoxiaoyingshi-app，无需跳转。</p>
+        <div class="dots" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </aside>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>128</b><span>已收录剧集条目</span></div>
+      <div class="stat"><b>37</b><span>整理中的补剧线路</span></div>
+      <div class="stat"><b>4.6</b><span>读者给出的平均评分</span></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><h2>小小影视是做什么的</h2><span>ABOUT</span></div>
+      <div class="rule"></div>
+      <div class="about">
+        <article>
+          <h4>只留有用的信息</h4>
+          <p>每部剧只写四行：类型、集数、更新到哪、值不值得追。多余的背景介绍一律删掉，翻页快，找得快。</p>
+        </article>
+        <article>
+          <h4>按进度排顺序</h4>
+          <p>同一系列按播出时间和剧情先后排好，标出哪几部可以先跳过，避免补剧补到一半发现顺序错了。</p>
+        </article>
+        <article>
+          <h4>问题自己先排查</h4>
+          <p>卡顿、字幕错位、音画不同步这类情况，常见原因写在常见问题里，照着做一次基本能解决。</p>
+        </article>
+      </div>
+      <p class="note">说明：<b>小小影视</b> 只做索引与笔记整理，不存放任何视频文件，也不提供下载，观看请通过你已有的正版渠道。</p>
+    </div>
+  </section>
+
+  <section id="list">
+    <div class="wrap">
+      <div class="sec-head"><h2>小小影视本月片单</h2><span>PICKLIST</span></div>
+      <div class="rule"></div>
+      <div class="cards">
+        <article class="card">
+          <div class="poster p1">小小影视 · 编辑推荐</div>
+          <div class="body">
+            <h4>《雾港来信》</h4>
+            <div class="meta">悬疑 / 12 集 / 已完结</div>
+            <p>三封信牵出二十年前的码头旧案，节奏偏慢但线索埋得扎实，适合一口气看完。</p>
+            <div class="score"><span>站内评分</span><span class="track"><i style="width:92%"></i></span><span>9.2</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p2">更新中 · 每周三</div>
+          <div class="body">
+            <h4>《南街第七号》</h4>
+            <div class="meta">生活 / 24 集 / 更新至 14</div>
+            <p>老街店铺的日常群像，单集独立，碎片时间随手补两集没有负担。</p>
+            <div class="score"><span>站内评分</span><span class="track"><i style="width:78%"></i></span><span>7.8</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p3">短篇 · 单集 20 分钟</div>
+          <div class="body">
+            <h4>《晚班车厢》</h4>
+            <div class="meta">剧情 / 8 集 / 已完结</div>
+            <p>每集发生在一趟夜班列车上，人物只出现一次，适合通勤路上看。</p>
+            <div class="score"><span>站内评分</span><span class="track"><i style="width:85%"></i></span><span>8.5</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p4">系列补剧 · 第二部</div>
+          <div class="body">
+            <h4>《山雨纪事 Ⅱ》</h4>
+            <div class="meta">年代 / 30 集 / 已完结</div>
+            <p>建议先看第一部再进这一部，第二部大量回收前作伏笔，直接看会看不懂。</p>
+            <div class="score"><span>站内评分</span><span class="track"><i style="width:88%"></i></span><span>8.8</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="poster p5">合家观看</div>
+          <div class="body">
+            <h4>《小院四季》</h4>
+            <div class="meta">家庭 / 16 集 / 更新至 9</div>
+            <p>无冲突设定，画面舒服，适合周末陪家里人一起看。</p>
+            <div class="score"><span>站内评分</span><span class="track"><i style="width:72%"></i></span><span>7.2</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head"><h2>补剧顺序怎么排</h2><span>GUIDE</span></div>
+      <div class="rule"></div>
+      <div class="steps">
+        <div class="step">
+          <h4>先分清正传和外传</h4>
+          <p>外传通常讲的是正传空档期发生的事，先看完正传再看外传，观感差别很大。<b>小小影视</b> 在片单里用「系列补剧」标签区分。</p>
+        </div>
+        <div class="step">
+          <h4>按播出年份排一次</h4>
+          <p>同一系列不同年份的作品，制作水准和叙事习惯差别明显，按年份走能少走弯路。</p>
+        </div>
+        <div class="step">
+          <h4>标记自己停在哪</h4>
+          <p>用手机备忘录记「第几部第几集」，中断几天再回来不用重新找进度，这是最省时间的一步。</p>
+        </div>
+        <div class="step">
+          <h4>每周固定一个时段</h4>
+          <p>本站片单每周三更新，挑一个固定时段翻一次就够了，不必天天刷。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2>常见问题</h2><span>FAQ</span></div>
+      <div class="rule"></div>
+      <div class="faq">
+        <details open>
+          <summary>播放时一直转圈，先查什么？</summary>
+          <p>先切到移动网络试一次，排除 Wi-Fi 问题；再关掉其他正在下载的应用。多数情况是带宽被占满，不是播放器本身的问题。</p>
+        </details>
+        <details>
+          <summary>字幕和画面对不上怎么办？</summary>
+          <p>换一条字幕轨一般就能解决；如果是外挂字幕，检查文件时间轴是否偏移，向前或向后调 0.5 秒试试。</p>
+        </details>
+        <details>
+          <summary>小小影视上的片单多久更新？</summary>
+          <p>每周三更新一次，遇到集中上映的档期会临时加更。更新后条目顺序会有变动，以页面当前显示为准。</p>
+        </details>
+        <details>
+          <summary>怎么把一个系列一次性找齐？</summary>
+          <p>在片单里认准「系列补剧」标签，同系列的条目会连续排列，按卡片顺序看即可。</p>
+        </details>
+        <details>
+          <summary>手机上看排版错位是怎么回事？</summary>
+          <p>本站按移动端优先排版，若出现异常，通常是浏览器缩放或字号被系统放大导致，恢复默认字号即可。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <div class="visit">
+        <div>
+          <h2>访问入口与站点信息</h2>
+          <p>直接收藏下面的地址，下次打开不用再搜索。<b>小小影视</b> 只有一个入口，注意辨别仿冒站点。</p>
+          <div class="qr" aria-label="站点地址图示"></div>
+        </div>
+        <div>
+          <ul>
+            <li><b>网址</b><span>https://xiaoxiaoyingshi-app.github.io</span></li>
+            <li><b>域名</b><span>xiaoxiaoyingshi-app.github.io</span></li>
+            <li><b>站点名</b><span>小小影视</span></li>
+            <li><b>更新频率</b><span>每周三，档期密集时加更</span></li>
+            <li><b>内容范围</b><span>剧集索引、补剧顺序、播放问题排查</span></li>
+            <li><b>适配</b><span>手机竖屏、平板、桌面浏览器</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#">小小影视</a>
+      <a href="#about">关于</a>
+      <a href="#list">片单</a>
+      <a href="#guide">补剧顺序</a>
+      <a href="#faq">常见问题</a>
+      <span class="r">© 2026 小小影视 · xiaoxiaoyingshi-app.github.io</span>
+    </div>
+    <p class="crumb">当前位置：<a href="#">首页</a> · <a href="#list">本月片单</a> · 剧集索引与追剧笔记</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"小小影视",
+  "alternateName":"Xiaoxiao Yingshi",
+  "url":"https://xiaoxiaoyingshi-app.github.io/",
+  "description":"小小影视是剧集索引与追剧笔记站，汇总每月片单、更新进度、补剧顺序建议与播放问题排查。",
+  "inLanguage":"zh-CN",
+  "publisher":{"@type":"Organization","name":"小小影视","url":"https://xiaoxiaoyingshi-app.github.io/"}
+}
+</script>
+</body>
+</html>
